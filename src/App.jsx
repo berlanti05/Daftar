@@ -1,11 +1,10 @@
 import "./App.css";
-import Sidebar from "./components/Sidebar/Sidebar";
-
+import "./index.css";
+import ShoppingList from "./components/ShoppingList";
 function App() {
   return (
-    <div className="app">
-      <Sidebar />
-
+    <div className="App">
+      <ShoppingList />
     </div>
   );
 }

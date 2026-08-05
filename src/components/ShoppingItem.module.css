@@ -1,0 +1,55 @@
+.shoppingItem {
+  min-height: 50px;
+  background-color: var(--softbackground);
+  border: 1px solid #e9d4a8;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: Texts;
+  color: var(--secondary);
+}
+
+.shoppingItem p {
+  max-width: 70%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.circleIcon {
+  border-radius: 50%;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.deleteIcon {
+  font-size: 25px;
+  cursor: pointer;
+  margin-right: auto;
+  margin-left: 10px;
+}
+
+.deleteIcon:hover {
+  color: var(--primary);
+}
+
+.sideStitch {
+  display: flex;
+  gap: 6px;
+  margin-right: 10px;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.sideStitch span {
+  width: 6px;
+  height: 6px;
+  background: #e7b7ae;
+  transform: rotate(45deg);
+  border-radius: 1px;
+}
+
+.done {
+  text-decoration: line-through;
+}
