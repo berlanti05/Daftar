@@ -1,20 +1,10 @@
-/* ==========CUSTOM FONTS==========*/
-
-@font-face {
-  font-family: Titels1;
-  src: url("/public/fonts/ReemKufi-VariableFont_wght.ttf");
+.app {
+  display: flex;
+  min-height: 100vh;
 }
 
-@font-face {
-  font-family: Titels2;
-  src: url("/public/fonts/ReemKufiFun-VariableFont_wght.ttf");
-}
-
-@font-face {
-  font-family: Texts;
-  src: url("/public/fonts/Estedad-VariableFont_wght.ttf");
-}
-
-body {
-  font-family: Titels2;
+.content {
+  flex: 1;
+  background: var(--background);
+  padding: 30px;
 }

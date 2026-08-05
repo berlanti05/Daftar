@@ -1,9 +1,16 @@
 import "./App.css";
-import COLORS from "./constants/colors";
+import Sidebar from "./components/Sidebar/Sidebar";
+
 function App() {
   return (
-    <div className="App">
-      <h1 style={{ color: COLORS.primary }}>السلام عليكم</h1>
+    <div className="app">
+
+      <div className="content">
+        <h1>السلام عليكم</h1>
+      </div>
+
+      <Sidebar />
+
     </div>
   );
 }
