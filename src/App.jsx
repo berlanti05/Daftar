@@ -1,9 +1,10 @@
 import "./App.css";
-import COLORS from "./constants/colors";
+import "./index.css";
+import ShoppingList from "./components/ShoppingList";
 function App() {
   return (
     <div className="App">
-      <h1 style={{ color: COLORS.primary }}>السلام عليكم</h1>
+      <ShoppingList />
     </div>
   );
 }
