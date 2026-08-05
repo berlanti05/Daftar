@@ -1,0 +1,28 @@
+:root {
+  --primary: #ad2221;
+  --secondary: #452816;
+  --background: #fdf2e3;
+  --softbackground: #fffbf3;
+}
+
+@font-face {
+  font-family: "Titels1";
+  src: url("/fonts/ReemKufi-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Titels2";
+  src: url("/fonts/ReemKufiFun-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Texts";
+  src: url("/fonts/Estedad-VariableFont_wght.ttf");
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  font-family: "Texts";
+  direction: rtl;
+}
