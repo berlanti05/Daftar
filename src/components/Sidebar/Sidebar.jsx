@@ -13,10 +13,10 @@ export default function Sidebar() {
     <aside className="sidebar">
       <div className="sidebar-header">
         <div className="logo">
-          <img src="/images/logo.png" alt="دفتر" />
+          <img src="/images/logo2.jpeg" alt="دفتر" />
           <div>
             <h1>دفتر</h1>
-            <p>وصفاتك بكل بساطة</p>
+            <p>دفتر زمان... بذكاء زماننا</p>
           </div>
         </div>
       </div>
@@ -31,6 +31,13 @@ export default function Sidebar() {
           ))}
         </ul>
       </nav>
+      
+<div className="side-stitch">                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+      </div>
 
       <div className="sidebar-footer">
         <button>+ وصفة جديدة</button>

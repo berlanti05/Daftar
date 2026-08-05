@@ -1,3 +1,9 @@
+:root {
+  --primary: #ad2221;
+  --secondary: #452816;
+  --background: #fdf2e3;
+  --softbackground: #fffbf3;
+}
 
 @font-face {
   font-family: "Titels1";
@@ -14,17 +20,9 @@
   src: url("/fonts/Estedad-VariableFont_wght.ttf");
 }
 
-
-
-:root {
-  --primary: #ad2221;
-  --secondary: #452816;
-  --background: #fdf2e3;
-}
-
-
 body {
   margin: 0;
   background: var(--background);
   font-family: "Texts";
+  direction: rtl;
 }
