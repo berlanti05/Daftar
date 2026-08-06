@@ -1,10 +1,15 @@
 import "./Sidebar.css";
-import { MdNote, MdLightbulb, MdShoppingCart, MdCalendarToday } from "react-icons/md";
+import {
+  MdNote,
+  MdLightbulb,
+  MdShoppingCart,
+  MdCalendarToday,
+} from "react-icons/md";
 
 export default function Sidebar() {
   const menuItems = [
-    { label: "دفاتري", icon: <MdNote /> },
-    { label: "اقتراحاتي", icon: <MdLightbulb /> },
+    { label: "دفتري", icon: <MdNote /> },
+    { label: "اقترحيلي", icon: <MdLightbulb /> },
     { label: "التسوق", icon: <MdShoppingCart /> },
     { label: "المخطط", icon: <MdCalendarToday /> },
   ];
@@ -31,12 +36,14 @@ export default function Sidebar() {
           ))}
         </ul>
       </nav>
-      
-<div className="side-stitch">                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+
+      <div className="side-stitch">
+        {" "}
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
       <div className="sidebar-footer">

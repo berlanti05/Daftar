@@ -1,12 +1,8 @@
 import "./App.css";
 import "./index.css";
-import ShoppingList from "./components/ShoppingList";
+import ShoppingPage from "./pages/ShoppingPage/ShoppingPage";
 function App() {
-  return (
-    <div className="App">
-      <ShoppingList />
-    </div>
-  );
+  return <ShoppingPage />;
 }
 
 export default App;

@@ -1,5 +1,5 @@
 import styles from "./ShoppingItem.module.css";
-import { useShopping } from "../contexts/ShoppingContext";
+import { useShopping } from "../../contexts/ShoppingContext";
 
 import { FaRegCircle } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
