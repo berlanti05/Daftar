@@ -1,6 +1,6 @@
 import styles from "./ShoppingList.module.css";
 import ShoppingItem from "./ShoppingItem";
-import { useShopping } from "../contexts/ShoppingContext";
+import { useShopping } from "../../contexts/ShoppingContext";
 
 import { useState } from "react";
 import { CiShoppingCart } from "react-icons/ci";
