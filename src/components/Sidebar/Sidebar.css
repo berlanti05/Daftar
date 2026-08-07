@@ -124,7 +124,11 @@
 }
 
 .menu-item.active {
-  background: linear-gradient(135deg, rgba(231, 183, 174, 0.25), rgba(231, 183, 174, 0.15));
+  background: linear-gradient(
+    135deg,
+    rgba(231, 183, 174, 0.25),
+    rgba(231, 183, 174, 0.15)
+  );
   color: var(--primary);
   border-color: #e7b7ae;
   font-weight: 600;
@@ -169,7 +173,8 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -230,7 +235,7 @@
 }
 
 .new-recipe-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;

@@ -6,8 +6,11 @@ import {
   MdShoppingCart,
   MdCalendarToday,
 } from "react-icons/md";
+import AddRecipeModal from "../AddRecipeModal/AddRecipeModal";
+import { useRecipe } from "../../contexts/RecipeContext";
 
 export default function Sidebar() {
+  const { isOpen, setIsOpen } = useRecipe();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -60,7 +63,9 @@ export default function Sidebar() {
             >
               <span className="menu-icon">{item.icon}</span>
               <span className="menu-label">{item.label}</span>
-              {isActive(item.path) && <span className="active-indicator"></span>}
+              {isActive(item.path) && (
+                <span className="active-indicator"></span>
+              )}
             </li>
           ))}
         </ul>
@@ -75,7 +80,15 @@ export default function Sidebar() {
       </div>
 
       <div className="sidebar-footer">
-        <button className="new-recipe-btn">+ وصفة جديدة</button>
+        <button
+          className="new-recipe-btn"
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
+          + وصفة جديدة
+        </button>
+        {isOpen ? <AddRecipeModal /> : <></>}
       </div>
     </aside>
   );
