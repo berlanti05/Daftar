@@ -1,0 +1,100 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(46, 27, 16, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 35%;
+  height: 600px;
+  background: var(--background);
+  border-radius: 20px;
+  padding: 24px;
+  color: var(--secondary);
+  font-family: Texts;
+
+  overflow: auto;
+  scrollbar-color: #e7b7ae transparent;
+  scrollbar-width: thin;
+}
+
+.close {
+  font-size: 25px;
+  position: relative;
+  bottom: 285px;
+  right: 36%;
+}
+
+.close:hover {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.item {
+  background-color: #f6e1dc;
+  min-width: 15%;
+  height: 35px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ingredientsList {
+  list-style-type: disc;
+  padding-right: 20px;
+  margin-top: 5px;
+}
+
+.ingredientsList li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+}
+
+.addToCart {
+  width: 80%;
+  margin: 1%;
+  height: 50px;
+  font-size: 15px;
+  font-family: Texts;
+  border-radius: 15px;
+  border: 1px solid var(--secondary);
+  background-color: transparent;
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.delete {
+  width: 15%;
+  margin: 1%;
+  height: 50px;
+  font-size: 20px;
+  font-family: Texts;
+  border-radius: 15px;
+  border: 1px solid var(--primary);
+  background-color: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
