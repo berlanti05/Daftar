@@ -5,8 +5,12 @@ import {
   MdShoppingCart,
   MdCalendarToday,
 } from "react-icons/md";
+import AddRecipeModal from "../AddRecipeModal/AddRecipeModal";
+import { useRecipe } from "../../contexts/RecipeContext";
 
 export default function Sidebar() {
+  const { isOpen, setIsOpen } = useRecipe();
+
   const menuItems = [
     { label: "دفتري", icon: <MdNote /> },
     { label: "اقترحيلي", icon: <MdLightbulb /> },
@@ -18,11 +22,8 @@ export default function Sidebar() {
     <aside className="sidebar">
       <div className="sidebar-header">
         <div className="logo">
-          <img src="/images/logo2.jpeg" alt="دفتر" />
-          <div>
-            <h1>دفتر</h1>
-            <p>دفتر زمان... بذكاء زماننا</p>
-          </div>
+          <img src="/images/logo5.png" alt="دفتر" />
+          <h1>سيدة ملعقة</h1>
         </div>
       </div>
 
@@ -47,7 +48,14 @@ export default function Sidebar() {
       </div>
 
       <div className="sidebar-footer">
-        <button>+ وصفة جديدة</button>
+        <button
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
+          + وصفة جديدة
+        </button>
+        {isOpen ? <AddRecipeModal /> : <></>}
       </div>
     </aside>
   );
