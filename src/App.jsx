@@ -7,7 +7,7 @@ import ShoppingPage from "./pages/ShoppingPage/ShoppingPage";
 
 function App() {
   return (
-    <div style={{ display: "flex" }}>
+    <div>
       <Routes>
         <Route path="/" element={<ShoppingPage />} />
         <Route path="/shopping" element={<ShoppingPage />} />
