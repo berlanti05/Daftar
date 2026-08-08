@@ -1,0 +1,110 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(46, 27, 16, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 35%;
+  min-width: 320px;
+  background: var(--background);
+  border-radius: 20px;
+  padding: 24px;
+  color: var(--secondary);
+  font-family: Texts;
+  font-weight: bold;
+  position: relative;
+}
+
+.modal h1 {
+  font-family: Titels2;
+  text-align: center;
+  margin-top: 0;
+}
+
+.close {
+  font-size: 25px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.close:hover {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.label {
+  display: block;
+  text-align: right;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.inputField {
+  border: 1px solid #e9d4a8;
+  height: 50px;
+  border-radius: 10px;
+  padding-right: 15px;
+  width: 100%;
+  font-size: 15px;
+  background-color: var(--softbackground);
+  font-family: Texts;
+  box-sizing: border-box;
+  margin-top: 8px;
+}
+
+.inputField:focus {
+  outline: none;
+}
+
+.emojiGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.emojiBtn,
+.emojiActive {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  font-size: 20px;
+  border: 1px solid #e9d4a8;
+  background-color: var(--softbackground);
+  cursor: pointer;
+}
+
+.emojiActive {
+  border-color: var(--primary);
+  background-color: #f6e1dc;
+}
+
+.saveBtn {
+  margin-top: 30px;
+  background-color: var(--primary);
+  height: 50px;
+  width: 100%;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: Texts;
+  cursor: pointer;
+}
+
+.saveBtn:hover {
+  background-color: #7e1918;
+}

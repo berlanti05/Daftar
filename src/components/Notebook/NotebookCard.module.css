@@ -1,0 +1,54 @@
+.card {
+  position: relative;
+  width: 20%;
+  min-width: 180px;
+  height: 150px;
+  background-color: var(--softbackground);
+  margin: 15px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  padding: 15px;
+  color: var(--secondary);
+  font-family: Texts;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.emoji {
+  font-size: 36px;
+}
+
+.name {
+  font-weight: bold;
+  margin: 8px 0 4px;
+}
+
+.count {
+  color: var(--primary);
+  font-size: 14px;
+  margin: 0;
+}
+
+.deleteIcon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 16px;
+  color: #b59e8c;
+}
+
+.deleteIcon:hover {
+  color: var(--primary);
+}
