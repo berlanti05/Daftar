@@ -19,7 +19,7 @@
   cursor: pointer;
 }
 
-.heart {
+.heartEmpty {
   position: relative;
   right: 92%;
   top: 6px;
@@ -27,8 +27,17 @@
   color: #e7b7ae;
   cursor: pointer;
 }
-.heart:hover {
+.heartEmpty:hover {
   color: var(--primary);
+}
+
+.heart {
+  position: relative;
+  right: 92%;
+  top: 6px;
+  font-size: 20px;
+  color: var(--primary);
+  cursor: pointer;
 }
 
 .name {

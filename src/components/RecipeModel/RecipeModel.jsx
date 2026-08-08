@@ -3,13 +3,47 @@ import { IoClose } from "react-icons/io5";
 import { IoIosTimer } from "react-icons/io";
 import { FaFire } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
+import { useRecipe } from "../../contexts/RecipeContext";
+import { useShopping } from "../../contexts/ShoppingContext";
+import { useState } from "react";
 
 export default function RecipeModel({ recipe }) {
+  const { setRecipeInfo } = useRecipe();
+  const { setList } = useShopping();
+  const [clicked, setClicked] = useState(false);
+
   if (!recipe) return null;
+
+  function closeRecipe() {
+    setRecipeInfo((prevRecipes) =>
+      prevRecipes.map((r) =>
+        r.id === recipe.id ? { ...r, isOpen: false } : r,
+      ),
+    );
+  }
+
+  function deleteRecipe() {
+    setRecipeInfo((prevRecipes) =>
+      prevRecipes.filter((r) => {
+        return r.id != recipe.id;
+      }),
+    );
+  }
+
+  function addToCart() {
+    const newItems = recipe.tags.map((tag) => ({
+      name: tag,
+      check: false,
+      id: crypto.randomUUID(),
+    }));
+
+    setList((prevList) => [...prevList, ...newItems]);
+    setClicked(true);
+  }
   return (
-    <div className={styles.overlay}>
-      <IoClose className={styles.close} />
-      <div className={styles.modal}>
+    <div className={styles.overlay} onClick={closeRecipe}>
+      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+        <IoClose className={styles.close} onClick={closeRecipe} />
         <p className={styles.name}>{recipe.name}</p>
         <div className={styles.container}>
           <div className={styles.item}>
@@ -33,11 +67,19 @@ export default function RecipeModel({ recipe }) {
 
         <div>
           <p style={{ marginTop: "20px", fontWeight: "bold" }}>طريقة التحضير</p>
-          <p> {recipe.steps}</p>
+          <p style={{ minHeight: "330px" }}> {recipe.steps}</p>
         </div>
         <div className={styles.btns}>
-          <button className={styles.addToCart}> اضف المكونات للتسوق</button>
-          <button className={styles.delete}>
+          {clicked ? (
+            <button className={styles.addToCart} onClick={addToCart} disabled>
+              المكونات انضافت للتسوق
+            </button>
+          ) : (
+            <button className={styles.addToCart} onClick={addToCart}>
+              اضف المكونات للتسوق
+            </button>
+          )}
+          <button className={styles.delete} onClick={deleteRecipe}>
             <FaRegTrashCan />
           </button>
         </div>

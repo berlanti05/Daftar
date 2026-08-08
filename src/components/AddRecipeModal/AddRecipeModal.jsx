@@ -45,6 +45,8 @@ export default function AddRecipeModal() {
         time: Time,
         cals: Cals,
         tags: Tags,
+        isFavorite: false,
+        isOpen: false,
       },
     ]);
 

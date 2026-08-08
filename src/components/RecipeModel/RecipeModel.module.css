@@ -24,9 +24,8 @@
 
 .close {
   font-size: 25px;
-  position: relative;
-  bottom: 285px;
-  right: 36%;
+  position: fixed;
+  right: 65%;
 }
 
 .close:hover {
