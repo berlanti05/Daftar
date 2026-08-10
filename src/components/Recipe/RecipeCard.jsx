@@ -9,7 +9,8 @@ import RecipeModel from "../RecipeModel/RecipeModel";
 export default function RecipeCard({ recipe }) {
   const { setRecipeInfo } = useRecipe();
 
-  function handleFavorite() {
+  function handleFavorite(e) {
+    e.stopPropagation();
     setRecipeInfo((prevRecipes) =>
       prevRecipes.map((r) =>
         r.id === recipe.id ? { ...r, isFavorite: !r.isFavorite } : r,
