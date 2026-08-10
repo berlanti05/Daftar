@@ -10,16 +10,13 @@
 
 .modal {
   width: 35%;
-  height: 630px;
+  height: 650px;
   background: var(--background);
   border-radius: 20px;
   padding: 24px;
   color: var(--secondary);
   font-family: Texts;
   font-weight: bold;
-  overflow: auto;
-  scrollbar-color: #e7b7ae transparent;
-  scrollbar-width: thin;
 }
 
 .modal h1 {
@@ -119,7 +116,6 @@ textarea:focus {
   border: 1px solid #f3cfc9;
   min-width: 10%;
   height: 30px;
-  overflow: hidden;
 }
 
 .removeBtn {
