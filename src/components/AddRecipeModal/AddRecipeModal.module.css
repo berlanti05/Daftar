@@ -10,13 +10,16 @@
 
 .modal {
   width: 35%;
-  height: 650px;
+  height: 620px;
   background: var(--background);
   border-radius: 20px;
   padding: 24px;
   color: var(--secondary);
   font-family: Texts;
   font-weight: bold;
+  overflow: auto;
+  scrollbar-color: #e7b7ae transparent;
+  scrollbar-width: thin;
 }
 
 .modal h1 {
