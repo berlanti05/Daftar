@@ -2,15 +2,18 @@ import styles from "./AddRecipeModal.module.css";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 import { useRecipe } from "../../contexts/RecipeContext";
+import { useNotebook } from "../../contexts/NotebookContext";
 
 export default function AddRecipeModal() {
   const [Tags, setTags] = useState([]);
   const { isOpen, setIsOpen, recipeInfo, setRecipeInfo } = useRecipe();
+  const { notebooks } = useNotebook();
   const [ingredient, setIngredient] = useState("");
   const [Name, setName] = useState("");
   const [Steps, setSteps] = useState("");
   const [Cals, setCals] = useState("");
   const [Time, setTime] = useState("");
+  const [NotebookId, setNotebookId] = useState("");
 
   const addTag = () => {
     const trimmed = ingredient.trim();
@@ -47,6 +50,7 @@ export default function AddRecipeModal() {
         tags: Tags,
         isFavorite: false,
         isOpen: false,
+        notebookId: NotebookId || null,
       },
     ]);
 
@@ -56,6 +60,7 @@ export default function AddRecipeModal() {
     setCals("");
     setTags([]);
     setIngredient("");
+    setNotebookId("");
 
     setIsOpen(false);
   }
@@ -113,6 +118,22 @@ export default function AddRecipeModal() {
               value={Steps}
               onChange={(e) => setSteps(e.target.value)}
             ></textarea>
+          </div>
+
+          <div className={styles.field}>
+            <label>الدفتر (اختياري)</label>
+            <select
+              className={styles.inputField}
+              value={NotebookId}
+              onChange={(e) => setNotebookId(e.target.value)}
+            >
+              <option value="">بدون دفتر</option>
+              {notebooks.map((notebook) => (
+                <option key={notebook.id} value={notebook.id}>
+                  {notebook.emoji} {notebook.name}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className={styles.fieldRow}>
