@@ -5,12 +5,14 @@ import { FaFire } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { useRecipe } from "../../contexts/RecipeContext";
 import { useShopping } from "../../contexts/ShoppingContext";
-import { useState } from "react";
+import { BsCartCheckFill } from "react-icons/bs";
 
 export default function RecipeModel({ recipe }) {
   const { setRecipeInfo } = useRecipe();
-  const { setList } = useShopping();
-  const [clicked, setClicked] = useState(false);
+  const { list, setList } = useShopping();
+  const isAdded = recipe.tags.every((tag) =>
+    list.some((item) => item.name === tag),
+  );
 
   if (!recipe) return null;
 
@@ -22,6 +24,21 @@ export default function RecipeModel({ recipe }) {
     );
   }
 
+  function addIngredientToCart(tag) {
+    const alreadyAdded = list.some((item) => item.name === tag);
+
+    if (alreadyAdded) return;
+
+    setList((prevList) => [
+      ...prevList,
+      {
+        name: tag,
+        check: false,
+        id: crypto.randomUUID(),
+      },
+    ]);
+  }
+
   function deleteRecipe() {
     setRecipeInfo((prevRecipes) =>
       prevRecipes.filter((r) => {
@@ -31,14 +48,15 @@ export default function RecipeModel({ recipe }) {
   }
 
   function addToCart() {
-    const newItems = recipe.tags.map((tag) => ({
-      name: tag,
-      check: false,
-      id: crypto.randomUUID(),
-    }));
+    const newItems = recipe.tags
+      .filter((tag) => !list.some((item) => item.name === tag))
+      .map((tag) => ({
+        name: tag,
+        check: false,
+        id: crypto.randomUUID(),
+      }));
 
     setList((prevList) => [...prevList, ...newItems]);
-    setClicked(true);
   }
   return (
     <div className={styles.overlay} onClick={closeRecipe}>
@@ -57,26 +75,50 @@ export default function RecipeModel({ recipe }) {
         </div>
         <div className={styles.ingredientsSection}>
           <p style={{ marginTop: "20px", fontWeight: "bold" }}>المكونات</p>
-
+          <p
+            style={{
+              fontWeight: "lighter",
+              fontSize: "15px",
+              marginTop: "-15px",
+            }}
+          >
+            اضغطي على المكون لاضافته على السلة
+          </p>
           <ul className={styles.ingredientsList}>
-            {recipe.tags?.map((tag, index) => (
-              <li key={index}>{tag}</li>
-            ))}
+            {recipe.tags?.map((tag) => {
+              const isAdded = list.some((item) => item.name === tag);
+
+              return (
+                <li key={tag}>
+                  <button
+                    onClick={() => addIngredientToCart(tag)}
+                    disabled={isAdded}
+                  >
+                    <span>{tag}</span>
+                    {isAdded ? (
+                      <BsCartCheckFill
+                        style={{ marginRight: "10px", color: "var(--primary)" }}
+                      />
+                    ) : null}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
         <div>
           <p style={{ marginTop: "20px", fontWeight: "bold" }}>طريقة التحضير</p>
-          <p style={{ minHeight: "330px" }}> {recipe.steps}</p>
+          <p> {recipe.steps}</p>
         </div>
         <div className={styles.btns}>
-          {clicked ? (
-            <button className={styles.addToCart} onClick={addToCart} disabled>
+          {isAdded ? (
+            <button className={styles.addToCart} disabled>
               المكونات انضافت للتسوق
             </button>
           ) : (
             <button className={styles.addToCart} onClick={addToCart}>
-              اضف المكونات للتسوق
+              اضف جميع المكونات للتسوق
             </button>
           )}
           <button className={styles.delete} onClick={deleteRecipe}>
