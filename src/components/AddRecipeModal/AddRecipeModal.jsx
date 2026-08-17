@@ -14,6 +14,8 @@ export default function AddRecipeModal() {
   const [Cals, setCals] = useState("");
   const [Time, setTime] = useState("");
   const [NotebookId, setNotebookId] = useState("");
+  const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+  const [isCalculating, setIsCalculating] = useState(false);
 
   const addTag = () => {
     const trimmed = ingredient.trim();
@@ -34,11 +36,13 @@ export default function AddRecipeModal() {
     setTags(Tags.filter((t) => t !== tagToRemove));
   };
 
-  function addRecipe() {
+  async function addRecipe() {
     if (!Name.trim()) {
       alert("اسم الوصفة مهم تدخليه");
       return;
     }
+    const calories = await calcCals();
+
     setRecipeInfo((prev) => [
       ...prev,
       {
@@ -46,7 +50,7 @@ export default function AddRecipeModal() {
         name: Name,
         steps: Steps,
         time: Time,
-        cals: Cals,
+        cals: calories,
         tags: Tags,
         isFavorite: false,
         isOpen: false,
@@ -63,6 +67,72 @@ export default function AddRecipeModal() {
     setNotebookId("");
 
     setIsOpen(false);
+  }
+
+  async function calcCals() {
+    setIsCalculating(true);
+
+    try {
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${API_KEY}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                  {
+                    text: `Estimate the total calories for ONE serving of this recipe.
+
+Recipe:
+${Name}
+
+Ingredients:
+${Tags.join(", ")}
+
+Steps:
+${Steps}
+
+Return ONLY one whole number representing the estimated calories.
+
+IMPORTANT:
+- Calculate the calories for ONE serving only.
+- Use the ingredient quantities provided.
+- Return nothing except the number.
+- No "calories", no kcal, no explanation, no punctuation.
+
+Example output:
+400`,
+                  },
+                ],
+              },
+            ],
+          }),
+        },
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.log(errorData);
+        throw new Error("يوجد خطأ");
+      }
+
+      const data = await response.json();
+
+      const calories = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      setCals(calories);
+
+      return calories;
+    } catch (error) {
+      console.error(error);
+      return "";
+    } finally {
+      setIsCalculating(false);
+    }
   }
 
   return (
@@ -145,13 +215,35 @@ export default function AddRecipeModal() {
                 onChange={(e) => setTime(e.target.value)}
               />
             </div>
-            <div className={styles.field}>
-              <label>السعرات (تقريبي)</label>
-              <input
-                placeholder="مثال: 450 سعرة"
-                value={Cals}
-                onChange={(e) => setCals(e.target.value)}
-              />
+            <div className={styles.caloriesBox}>
+              <label>السعرات الحرارية للفرد الواحد</label>
+
+              <div className={styles.caloriesInput}>
+                <span>
+                  {isCalculating
+                    ? "جاري حساب السعرات..."
+                    : Cals
+                      ? `${Cals} سعرة`
+                      : "لم يتم حسابها بعد"}
+                </span>
+
+                <button
+                  type="button"
+                  onClick={calcCals}
+                  disabled={isCalculating}
+                >
+                  {isCalculating ? (
+                    <>
+                      <span className={styles.spinner}></span>
+                      جاري الحساب
+                    </>
+                  ) : Cals ? (
+                    "إعادة الحساب"
+                  ) : (
+                    "احسبي"
+                  )}
+                </button>
+              </div>
             </div>
           </div>
           <button className={styles.saveBtn} onClick={addRecipe}>

@@ -199,3 +199,74 @@ textarea:focus {
   outline: none;
   border-color: var(--primary);
 }
+
+.caloriesBox {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 20px;
+  gap: 8px;
+}
+
+.caloriesBox label {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.caloriesInput {
+  height: 50px;
+  width: 100%;
+  border: 1px solid #e9d4a8;
+  border-radius: 10px;
+  background-color: var(--softbackground);
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 5px 6px 5px 15px;
+}
+
+.caloriesInput span {
+  color: var(--secondary);
+  font-size: 15px;
+}
+
+.caloriesInput button {
+  height: 40px;
+  padding: 0 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: white;
+  font-family: Texts;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.caloriesInput button:hover {
+  background-color: #7e1918;
+}
+
+.caloriesInput button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.spinner {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin-left: 6px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

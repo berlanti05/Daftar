@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import styles from "./PlanPage.module.css";
-import DayCard from "../../components/Daycard/DayCard";
+import DayCard from "../../components/DayCard/DayCard";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
 export default function PlanPage() {
