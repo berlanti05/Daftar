@@ -6,7 +6,6 @@ import {
   MdOutlineLock,
   MdOutlineVisibility,
   MdOutlineVisibilityOff,
-  MdCheckCircle,
 } from "react-icons/md";
 import styles from "./RegisterPage.module.css";
 
@@ -50,7 +49,6 @@ export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [done, setDone] = useState(false);
 
   function update(field, value) {
     setForm((f) => ({ ...f, [field]: value }));
@@ -67,31 +65,8 @@ export default function RegisterPage() {
     // محاكاة استدعاء سيرفر - رح تنشال هاي الجزئية وقت ما نربط نظام التسجيل الحقيقي
     setTimeout(() => {
       setLoading(false);
-      setDone(true);
+      navigate("/notes");
     }, 1000);
-  }
-
-  if (done) {
-    return (
-      <div className={styles.page}>
-        <div className={styles.card}>
-          <div className={styles.successIcon}>
-            <MdCheckCircle />
-          </div>
-          <h2 className={styles.title}>تم إنشاء حسابك 🎉</h2>
-          <p className={styles.subtitle}>
-            أهلاً فيكِ يا {form.name.split(" ")[0]}! حسابك جاهز، يلا ابدئي عبّي
-            دفترك الأول.
-          </p>
-          <button
-            className={styles.submitBtn}
-            onClick={() => navigate("/notes")}
-          >
-            الدخول لدفتري
-          </button>
-        </div>
-      </div>
-    );
   }
 
   return (
