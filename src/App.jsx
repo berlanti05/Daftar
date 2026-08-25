@@ -8,6 +8,7 @@ import PlanPage from "./pages/PlanPage/PlanPage";
 import NotebookPage from "./pages/NotebookPage/NotebookPage";
 import HomePage from "./pages/HomePage/HomePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         {/* الصفحة الرئيسية قبل تسجيل الدخول */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<RegisterPage />} />
 
         {/* صفحات التطبيق (حاليًا بدون حماية تسجيل دخول لغاية ما نجهزه) */}
