@@ -36,7 +36,7 @@ export default function ShoppingList() {
       <div className={styles.inputContainer}>
         <input
           type="text"
-          placeholder="مثال: بندورة"
+          placeholder="مثال: طماطم"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleAdd()}

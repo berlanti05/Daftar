@@ -8,7 +8,7 @@ import PlanPage from "./pages/PlanPage/PlanPage";
 import NotebookPage from "./pages/NotebookPage/NotebookPage";
 import HomePage from "./pages/HomePage/HomePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-
+import SuggestionsPage from "./pages/SuggestionsPage/SuggestionsPage";
 function App() {
   return (
     <div>
@@ -21,6 +21,7 @@ function App() {
         {/* صفحات التطبيق (حاليًا بدون حماية تسجيل دخول لغاية ما نجهزه) */}
         <Route path="/notes" element={<NotesPage />} />
         <Route path="/notes/:notebookId" element={<NotebookPage />} />
+        <Route path="/suggestions" element={<SuggestionsPage />} />
         <Route path="/shopping" element={<ShoppingPage />} />
         <Route path="/planner" element={<PlanPage />} />
       </Routes>

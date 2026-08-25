@@ -1,11 +1,10 @@
 .page {
   direction: rtl;
-  background: #f7ebd5;
+  background: #faf3e3;
   color: var(--secondary);
   font-family: "Texts", sans-serif;
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
 }
 
 .content {
@@ -34,17 +33,6 @@
     rgba(231, 183, 174, 0.35),
     transparent 70%
   );
-}
-
-.page::after {
-  content: "";
-  position: absolute;
-  bottom: -140px;
-  left: -140px;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(217, 119, 87, 0.2), transparent 70%);
 }
 
 .card {
