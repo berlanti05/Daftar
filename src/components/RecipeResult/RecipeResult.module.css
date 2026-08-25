@@ -1,0 +1,130 @@
+.cardbefore {
+  max-height: 550px;
+  min-height: 200px;
+  background-color: var(--softbackground);
+  border-radius: 15px;
+  border: 1px dashed var(--border);
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary);
+}
+
+.before {
+  flex-direction: row;
+  text-align: center;
+}
+
+.sparkle {
+  font-size: 50px;
+  color: #c4b1a1;
+}
+
+.cardafter {
+  max-height: 520px;
+  min-height: 200px;
+  background-color: var(--softbackground);
+  border-radius: 15px;
+  border: 1px dashed var(--border);
+  flex: 1;
+  margin-left: 20px;
+  color: var(--secondary);
+  overflow: auto;
+  scrollbar-color: #e7b7ae transparent;
+  scrollbar-width: thin;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-right: 20px;
+}
+
+.hero h3 {
+  font-family: Titels2;
+  margin-top: -10px;
+  font-size: 20px;
+}
+.hero p {
+  font-size: 15px;
+  color: #c4b1a1;
+}
+
+.feilds {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-right: 40px;
+  margin-top: -20px;
+}
+
+.feilds p {
+  background-color: #f6e1dc;
+  padding: 5px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.tags {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-right: 40px;
+  margin-top: -20px;
+}
+
+.tags p {
+  border: 1px solid var(--border);
+  padding: 5px 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.container {
+  max-height: 550px;
+  min-height: 200px;
+  flex: 1;
+}
+
+.tryAgain {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-family: Texts;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 20px 10px;
+}
+.tryAgain:hover {
+  background-color: #7e1918;
+}
+
+.inputField {
+  border: 1px solid #e9d4a8;
+  height: 40px;
+  border-radius: 10px;
+  padding-right: 15px;
+  width: 60%;
+  font-size: 15px;
+  background-color: var(--softbackground);
+  font-family: Texts;
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-right: 10px;
+}
+
+.tryAgain:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
