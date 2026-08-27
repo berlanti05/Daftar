@@ -6,6 +6,8 @@ import {
   MdShoppingCart,
   MdCalendarToday,
 } from "react-icons/md";
+import { TbSparkles } from "react-icons/tb";
+import { FaRegUser } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import styles from "./HomePage.module.css";
 
@@ -76,27 +78,33 @@ export default function HomePage() {
           <span></span>
           <span></span>
         </div>
+        <div className={styles.content}>
+          <h2 className={styles.heroTitle}>مطبخك كله،</h2>
+          <h2 className={styles.heroTitle} style={{ color: "var(--primary)" }}>
+            بدفتر واحد
+          </h2>
+          <p className={styles.heroSubtitle}>
+            سيدة ملعقة هو دفتر مطبخك الرقمي: احفظي وصفاتك، خططي وجباتك، جهزي
+            قائمة التسوق، وخلي الذكاء الاصطناعي يقترحلك شو تطبخي من يلي موجود
+            عندك بالبيت.
+          </p>
 
-        <h2 className={styles.heroTitle}>مطبخك كله، بدفتر واحد</h2>
-        <p className={styles.heroSubtitle}>
-          سيدة ملعقة هو دفتر مطبخك الرقمي: احفظي وصفاتك، خططي وجباتك، جهزي قائمة
-          التسوق، وخلي الذكاء الاصطناعي يقترحلك شو تطبخي من يلي موجود عندك
-          بالبيت.
-        </p>
-
-        <div className={styles.heroActions}>
-          <button
-            className={styles.ctaPrimary}
-            onClick={() => navigate("/signup")}
-          >
-            ابدئي مجانًا
-          </button>
-          <button
-            className={styles.ctaSecondary}
-            onClick={() => navigate("/login")}
-          >
-            عندي حساب، تسجيل دخول
-          </button>
+          <div className={styles.heroActions}>
+            <button
+              className={styles.ctaPrimary}
+              onClick={() => navigate("/signup")}
+            >
+              <TbSparkles />
+              ابدئي مجانًا
+            </button>
+            <button
+              className={styles.ctaSecondary}
+              onClick={() => navigate("/login")}
+            >
+              <FaRegUser />
+              عندي حساب، تسجيل دخول
+            </button>
+          </div>
         </div>
       </section>
 
