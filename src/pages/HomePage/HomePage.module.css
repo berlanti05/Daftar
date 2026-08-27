@@ -96,19 +96,30 @@
 
 /* ==================== HERO ==================== */
 .hero {
-  max-width: 760px;
-  margin: 0 auto;
+  background-image: url("/images/hero.png");
+  width: 96%;
+  overflow: hidden;
+  height: 325px;
+  margin: 5px auto;
   padding: 70px 24px 50px;
-  text-align: center;
+  border-radius: 30px;
+  border: 1px solid var(--border);
+  direction: ltr;
+  text-align: left;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+}
+.content {
+  text-align: center;
 }
 
 .heroStitch {
   display: flex;
   gap: 8px;
   margin-bottom: 22px;
+  margin-left: 16%;
 }
 
 .heroStitch span {
@@ -141,12 +152,13 @@
   gap: 14px;
   flex-wrap: wrap;
   justify-content: center;
+  direction: rtl;
 }
 
 .ctaPrimary,
 .ctaSecondary {
   font-family: "Texts", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: 24px;
   padding: 14px 30px;

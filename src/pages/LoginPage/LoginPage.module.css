@@ -1,17 +1,16 @@
 .page {
   direction: rtl;
-  background: #f7ebd5;
+  background: #fbedd2;
   color: var(--secondary);
   font-family: "Texts", sans-serif;
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
 }
 
 .content {
   direction: rtl;
   min-height: 100vh;
-  background-image: url("/images/register_bg.jpeg");
+  background-image: url("/images/register_bg2.jpeg");
   background-repeat: no-repeat;
   color: var(--secondary);
   font-family: "Texts", sans-serif;
@@ -36,18 +35,11 @@
   );
 }
 
-.page::after {
-  content: "";
-  position: absolute;
-  bottom: -140px;
-  left: -140px;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(217, 119, 87, 0.2), transparent 70%);
-}
-
 .card {
+  background-color: var(--softbackground);
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
   position: relative;
   z-index: 1;
   width: 100%;
